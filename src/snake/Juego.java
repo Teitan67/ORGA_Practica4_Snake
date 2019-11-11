@@ -147,7 +147,7 @@ public class Juego extends javax.swing.JFrame {
             .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panelJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 660));
+        getContentPane().add(panelJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(-480, -50, 650, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
