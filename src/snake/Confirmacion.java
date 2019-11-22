@@ -209,7 +209,7 @@ public class Confirmacion extends javax.swing.JFrame {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        aprobados.add(new Aprobados(lblnombre.getText(), lblpass.getText(), null));
+        aprobados.add(new Aprobados(lblnombre.getText(), lblpass.getText(), new Estado("00:00","0","0")));
         JOptionPane.showMessageDialog(null, "¡Se ha aprobado la solicitud!");
         jLabel3.setVisible(false);
         jLabel4.setVisible(false);

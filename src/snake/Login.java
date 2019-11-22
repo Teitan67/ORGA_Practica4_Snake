@@ -7,7 +7,6 @@ package snake;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 /**
  *
@@ -25,6 +24,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
        this.setLocationRelativeTo(null);
        miembros.add(new Aprobados("Admin_ORGA","12345",null));
+       miembros.add(new Aprobados("prueba","123",new Estado("00:00","0","0")));
     //   usuarios.add(new Solicitud("Admin_ORGA","12345"));
     }
     public Login(ArrayList<Solicitud> usuarios, ArrayList<Aprobados> aprobados){
@@ -157,9 +157,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcontrasenaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    // Juego juego=new Juego();
-     //  juego.setVisible(true);
-       if(txtusuario.getText()!=null || txtcontrasena.getText()!=null){
+    
+      if(txtusuario.getText()!=null || txtcontrasena.getText()!=null){
      
         if(miembros!=null){
         for(int i=0; i<miembros.size();i++){
@@ -172,7 +171,7 @@ public class Login extends javax.swing.JFrame {
                    this.dispose();
                    return;
                }else{
-               Snake s=new Snake(miembros,txtusuario.getText());
+               Snake s=new Snake(usuarios,miembros,i);
                s.setVisible(true);
                this.dispose();
                return;

@@ -68,12 +68,17 @@ public class Administrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 260, 90));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 270, 110));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8_Clock_96px.png"))); // NOI18N
         jButton2.setText("Top 10 en tiempos");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 290, 90));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 290, 110));
 
         jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8_Today_96px.png"))); // NOI18N
@@ -83,7 +88,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 260, 90));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 270, 110));
 
         jButton4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8_Handshake_96px.png"))); // NOI18N
@@ -93,7 +98,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 290, 90));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 290, 110));
 
         jButton5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8_Maintenance_96px.png"))); // NOI18N
@@ -103,7 +108,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 260, 90));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 270, 110));
 
         jButton6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Office-Customer-Male-Light-icon.png"))); // NOI18N
@@ -113,7 +118,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 290, 90));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 290, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,7 +128,7 @@ public class Administrador extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
         );
 
         pack();
@@ -154,8 +159,16 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    this.dispose();
+    TopPuntos puntos=new TopPuntos(solicitud,aprobados);
+    puntos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       this.dispose();
+    TopTiempo tiempo=new TopTiempo(solicitud,aprobados);
+    tiempo.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +205,7 @@ public class Administrador extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

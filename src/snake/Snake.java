@@ -16,18 +16,26 @@ public class Snake extends javax.swing.JFrame {
     /**
      * Creates new form Snake
      */
-    ArrayList<Aprobados> usuario;
-    String nombre;
+     ArrayList<Solicitud> usuarios; ArrayList<Aprobados> aprobados;
+     int pos;
     public Snake() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public Snake(ArrayList<Aprobados> usuarios, String nombre){
+    public Snake(ArrayList<Solicitud> usuarios, ArrayList<Aprobados> aprobados,int pos){
           initComponents();
-          this.usuario=usuarios;
-          this.nombre=nombre;
+          this.usuarios=usuarios;
+          this.aprobados=aprobados;
+          this.pos=pos;
           this.setLocationRelativeTo(null);
+          
+        lblusuario.setText(aprobados.get(pos).getNombre());
+        lbltiempo.setText(aprobados.get(pos).getEstado().getTiempo());
+        lblnivel.setText(aprobados.get(pos).getEstado().getNivel());
+        lblpunto.setText(aprobados.get(pos).getEstado().getPuntos());
+          
+          
     }
     
     @SuppressWarnings("unchecked")
@@ -46,6 +54,7 @@ public class Snake extends javax.swing.JFrame {
         lblnivel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -102,12 +111,26 @@ public class Snake extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8_Globe_32px.png"))); // NOI18N
         jButton2.setText("Acerca de");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 230, -1));
 
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8_Menu_32px_1.png"))); // NOI18N
         jButton3.setText("Documentación");
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 230, 40));
+
+        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton4.setText("Cerrar sesión");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 230, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/sn.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
@@ -122,6 +145,11 @@ public class Snake extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 102, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Button-Ok-icon.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/snake22(1)_1.png"))); // NOI18N
@@ -135,20 +163,25 @@ public class Snake extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void buscarInfo(){
-        
-        for(int i=0; i<usuario.size();i++){
-            if(usuario.get(i).getNombre().equalsIgnoreCase(nombre)){
-                lblusuario.setText(nombre);
-                lbltiempo.setText(usuario.get(i).getEstado().getTiempo());
-                lblnivel.setText(usuario.get(i).getEstado().getNivel());
-                lblpunto.setText(usuario.get(i).getEstado().getPuntos());
-                return;
-            }
-        }
-        
-        
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Juego juego=new Juego(usuarios,aprobados,pos);
+       juego.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Login log=new Login(usuarios,aprobados);
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AcercaDe ace=new AcercaDe(usuarios,aprobados,pos);
+        ace.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -185,6 +218,7 @@ public class Snake extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
